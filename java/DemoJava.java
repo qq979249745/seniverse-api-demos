@@ -30,7 +30,7 @@ class DemoJava {
             mac.init(signingKey);
             // compute the hmac on input data bytes
             byte[] rawHmac = mac.doFinal(data.getBytes("UTF-8"));
-            result = new sun.misc.BASE64Encoder().encode(rawHmac);
+            result = Base64.getEncoder().encodeToString(rawHmac);
         }
         catch (Exception e) {
             throw new SignatureException("Failed to generate HMAC : " + e.getMessage());
